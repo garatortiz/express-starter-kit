@@ -1,14 +1,6 @@
 {
-    "extends": [
-        "standard",
-        "prettier",
-        "airbnb"
-    ],
-    "plugins": [
-        "import",
-        "prettier",
-        "airbnb"
-    ],
+    "extends": ["standard", "prettier", "prettier/standard"],
+    "plugins": ["import", "prettier", "standard"],
     "parserOptions": {
         "ecmaVersion": 2017
     },
@@ -20,7 +12,6 @@
     "rules": {
         "space-before-function-paren": 0,
         "new-cap": 0,
-        "prettier/prettier": 2,
-        "semi": 1
+        "prettier/prettier": 2
     }
 }
