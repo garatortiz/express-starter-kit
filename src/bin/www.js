@@ -1,65 +1,31 @@
-#!/usr/bin/env node
+import app from '../app'
+import debugLib from 'debug'
+import http from 'http'
 
-/**
- * Module dependencies.
- */
+const debug = debugLib('boilerplate-express:server')
 
-var app = require('../app')
-var debug = require('debug')('boilerplate-express:server')
-var http = require('http')
+/** Create HTTP server. */
+const server = http.createServer(app)
 
-/**
- * Get port from environment and store in Express.
- */
+/** Normalize a port into a number, string, or false. */
+const normalizePort = val => {
+  const port = parseInt(val, 10)
 
-var port = normalizePort(process.env.PORT || '3000')
-app.set('port', port)
+  if (isNaN(port)) return val
 
-/**
- * Create HTTP server.
- */
-
-var server = http.createServer(app)
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port)
-server.on('error', onError)
-server.on('listening', onListening)
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  var port = parseInt(val, 10)
-
-  if (isNaN(port)) {
-    // named pipe
-    return val
-  }
-
-  if (port >= 0) {
-    // port number
-    return port
-  }
+  if (port >= 0) return port
 
   return false
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
+/** Get port from environment and store in Express. */
+const port = normalizePort(process.env.PORT || '3000')
+app.set('port', port)
 
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error
-  }
-
-  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
-
+/** Event listener for HTTP server "error" event. */
+const onError = error => {
+  if (error.syscall !== 'listen') throw error
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
@@ -73,12 +39,14 @@ function onError(error) {
   }
 }
 
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-  var addr = server.address()
-  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
+/** Event listener for HTTP server "listening" event. */
+const onListening = () => {
+  const addr = server.address()
+  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`
   debug('Listening on ' + bind)
 }
+
+/** Listen on provided port, on all network interfaces. */
+server.listen(port)
+server.on('error', onError)
+server.on('listening', onListening)
