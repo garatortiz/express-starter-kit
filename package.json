@@ -1,32 +1,44 @@
 {
-  "name": "boilerplate-express",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www",
-    "lint": "eslint src --color",
-    "p": "prettier --write 'src/**/*.js'",
-    "p:w": "onchange 'src/**/*.js' -- prettier --write {{changed}}"
-  },
-  "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "morgan": "~1.9.0",
-    "node-sass-middleware": "0.11.0",
-    "pug": "^2.0.3"
-  },
-  "devDependencies": {
-    "eslint": "^5.15.3",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "onchange": "^5.2.0",
-    "prettier": "^1.16.4"
-  }
+    "name": "boilerplate-express",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./dist/bin/www",
+        "dev": "nodemon --exec babel-node ./src/bin/www ",
+        "build": "npm run clean && mkdir dist && babel ./src --out-dir ./dist",
+        "clean": "rimraf ./dist",
+        "lint": "eslint src --color",
+        "p": "prettier --write 'src/**/*.js'",
+        "p:w": "onchange 'src/**/*.js' -- prettier --write {{changed}}"
+    },
+    "dependencies": {
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.6.9",
+        "express": "~4.16.0",
+        "http-errors": "~1.6.2",
+        "morgan": "~1.9.0",
+        "node": "^11.12.0",
+        "pug": "^2.0.3"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.4.0",
+        "@babel/node": "^7.2.2",
+        "@babel/plugin-transform-runtime": "^7.4.0",
+        "@babel/preset-env": "^7.4.2",
+        "@babel/runtime": "^7.4.2",
+        "eslint": "^5.15.3",
+        "eslint-config-prettier": "^4.1.0",
+        "eslint-config-standard": "^12.0.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-node": "^8.0.1",
+        "eslint-plugin-prettier": "^3.0.1",
+        "eslint-plugin-promise": "^4.0.1",
+        "eslint-plugin-standard": "^4.0.0",
+        "node-sass-middleware": "0.11.0",
+        "nodemon": "^1.18.10",
+        "onchange": "^5.2.0",
+        "prettier": "^1.16.4",
+        "rimraf": "^2.6.3"
+    }
 }
