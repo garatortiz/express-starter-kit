@@ -9,7 +9,8 @@
         "clean": "rimraf ./dist",
         "lint": "eslint src --color",
         "p": "prettier --write 'src/**/*.js'",
-        "p:w": "onchange 'src/**/*.js' -- prettier --write {{changed}}"
+        "p:w": "onchange 'src/**/*.js' -- prettier --write {{changed}}",
+        "test": "jest"
     },
     "dependencies": {
         "cookie-parser": "~1.4.3",
@@ -41,6 +42,7 @@
         "nodemon": "^1.18.10",
         "onchange": "^5.2.0",
         "prettier": "^1.16.4",
-        "rimraf": "^2.6.3"
+        "rimraf": "^2.6.3",
+        "supertest": "^4.0.2"
     }
 }
