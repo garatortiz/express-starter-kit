@@ -1,7 +1,9 @@
+import dotenv from 'dotenv'
 import app from '../app'
 import debugLib from 'debug'
 import http from 'http'
 
+dotenv.config()
 const debug = debugLib('boilerplate-express:server')
 
 /** Create HTTP server. */
