@@ -10,7 +10,8 @@
         "lint": "eslint src --color",
         "p": "prettier --write 'src/**/*.js'",
         "p:w": "onchange 'src/**/*.js' -- prettier --write {{changed}}",
-        "test": "jest"
+        "test": "jest",
+        "coverage": "codecov"
     },
     "dependencies": {
         "@babel/cli": "^7.2.3",
