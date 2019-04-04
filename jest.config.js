@@ -7,4 +7,12 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.js', '!**/node_modules/**', '!src/bin/**'],
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
+  coveragePathIgnorePatterns: [
+    'node_modules',
+    'src/bin',
+    'src/config',
+    'src/migrations',
+    'src/models',
+    'src/seeders',
+  ],
 }
