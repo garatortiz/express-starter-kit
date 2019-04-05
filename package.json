@@ -11,7 +11,12 @@
         "p": "prettier --write 'src/**/*.js'",
         "p:w": "onchange 'src/**/*.js' -- prettier --write {{changed}}",
         "test": "jest",
-        "coverage": "codecov"
+        "coverage": "codecov",
+        "migrate": "sequelize db:migrate",
+        "migrate:undo": "sequelize db:migrate:undo",
+        "migrate:undo:all": "sequelize db:migrate:undo:all",
+        "seed": "sequelize db:seed",
+        "seed:undo": "sequelize db:seed:undo:all"
     },
     "dependencies": {
         "@babel/cli": "^7.2.3",
