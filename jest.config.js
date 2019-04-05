@@ -5,6 +5,7 @@ module.exports = {
   clearMocks: true,
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.js', '!**/node_modules/**', '!src/bin/**'],
+  coverageReporters: ['lcov'],
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
   coveragePathIgnorePatterns: [
