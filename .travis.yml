@@ -4,6 +4,13 @@ env:
 language: node_js
 node_js:
     - stable
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    on:
+        branch: master
 install:
     - npm install
 before_script:
