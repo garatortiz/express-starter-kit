@@ -3,7 +3,7 @@ env:
         - CC_TEST_REPORTER_ID=d17800b80daca360e1fabcb4b8022c5c2c1c92c9cd8828d16f22d0182706d085
 language: node_js
 node_js:
-    - 11.15.0
+    - stable
 install:
     - npm install
 before_script:
