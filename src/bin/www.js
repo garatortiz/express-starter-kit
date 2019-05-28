@@ -53,6 +53,6 @@ const onListening = () => {
 models.sequelize.sync().then(() => {
   /** Listen on provided port, on all network interfaces. */
   server.listen(port)
-  server.on('error', onError)
+  server.on('error.ejs', onError)
   server.on('listening', onListening)
 })
